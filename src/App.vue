@@ -1,12 +1,23 @@
 <script setup lang="ts">
-import CounterComposition from './components/CounterComposition.vue';
-import CounterScriptSetup from './components/CounterScriptSetup.vue';
+import { RouterView } from 'vue-router';
+import Navbar from '@/shared/components/Navbar.vue';
+
 
 </script>
 
 <template>
-  <CounterComposition />
-  <CounterScriptSetup />
+  <header>
+    <Navbar />
+  </header>
+
+  <main>
+    <RouterView />
+  </main>
+
+  <footer>
+    <!-- Footer -->
+  </footer>
+
 </template>
 
 <style scoped>
