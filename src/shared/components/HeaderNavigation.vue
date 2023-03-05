@@ -1,32 +1,50 @@
+<script setup lang="ts">
+  import { RouterLink } from 'vue-router'
+  import type { LinkRoute } from '@/router/link-routes'
+
+  // const props = defineProps({
+  //   title: {
+  //     type: String,
+  //     default: 'Breaking Bad App'
+  //   }
+  // })
+
+  // const props = defineProps<{ title: String }>()
+
+  interface Props {
+    title: string
+    links: LinkRoute[]
+  }
+
+  const props = defineProps<Props>()
+
+</script>
+
+
 <template>
   <header class="header">
     <nav class="nav container">
-      <a href="#" class="nav__logo">Breaking Bad</a>
+      <a href="#" class="nav__logo">{{ props.title }}</a>
 
       <div class="nav__menu">
         <ul class="nav__list">
-          <li class="nav__item">
-            <RouterLink to="/" class="nav__link" active-class="active-link">
-              <i class='bx bx-home-alt nav__icon'></i>
-              <span class="nav__name">Home</span>
-            </RouterLink>
-          </li>
-          <li class="nav__item">
-            <RouterLink to="/about" class="nav__link" active-class="active-link">
-              <i class='bx bx-user nav__icon'></i>
-              <span class="nav__name">About</span>
-            </RouterLink>
-          </li>
-          <li class="nav__item">
-            <RouterLink to="/github" class="nav__link" active-class="active-link">
-              <i class='bx bx-code-curly nav__icon'></i>
-              <span class="nav__name">Code</span>
-            </RouterLink>
-          </li>
-          <li class="nav__item">
-            <RouterLink to="/phone" class="nav__link" active-class="active-link">
-              <i class='bx bx-message-square-detail nav__icon'></i>
-              <span class="nav__name">Contact me</span>
+          <li 
+            class="nav__item"
+            v-for="link of props.links"
+            :key="link.name"
+          >
+            <RouterLink 
+              :to="link.path"
+              class="nav__link"
+              active-class="active-link"
+            >
+              <i 
+                :class="link.icon" 
+                class='nav__icon'>
+              </i>
+              <span class="nav__name">
+                {{ link.name }}
+              </span>
             </RouterLink>
           </li>
         </ul>
@@ -34,10 +52,6 @@
     </nav>
   </header>
 </template>
-
-<script setup lang="ts">
-  import { RouterLink } from 'vue-router'
-</script>
 
 <style scoped>
   .header{
