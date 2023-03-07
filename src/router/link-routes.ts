@@ -18,13 +18,13 @@ export const linkRoutes: LinkRoute[] = [
     path: '/about'
   },
   {
+    name: 'Characters',
+    icon: 'bx bx-message-square-detail',
+    path: '/characters'
+  },
+  {
     name: 'Code',
     icon: 'bx bx-code-curly',
     path: '/code'
-  },
-  {
-    name: 'Contact me',
-    icon: 'bx bx-message-square-detail',
-    path: '/github'
   },
 ]

@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <h1>CharacterLayout</h1>
   </div>
 </template>
 
